@@ -6,7 +6,7 @@ use app\models\Language;
 use app\models\Author;
 
 /**
- * Class m180203_184607_post_test
+ * Class m180203_184607_posts
  */
 class m180203_184607_posts extends Migration
 {
