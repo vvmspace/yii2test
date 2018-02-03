@@ -8,7 +8,7 @@ use app\models\Author;
 /**
  * Class m180203_184607_post_test
  */
-class m180203_184607_post_test extends Migration
+class m180203_184607_posts extends Migration
 {
 
     // Вынужденный хардкод, только из-за специфичности задачи
@@ -52,7 +52,7 @@ class m180203_184607_post_test extends Migration
 
     public function down()
     {
-        echo "m180203_184607_post_test cannot be reverted.\n";
+        echo "m180203_184607_posts cannot be reverted.\n";
 
         return false;
     }
