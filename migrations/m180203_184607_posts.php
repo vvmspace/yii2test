@@ -57,7 +57,7 @@ class m180203_184607_posts extends Migration
         return false;
     }
 
-    function randomDate($start_date, $end_date)
+    private function randomDate($start_date, $end_date)
     {
         $min = strtotime($start_date);
         $max = strtotime($end_date);
@@ -65,21 +65,21 @@ class m180203_184607_posts extends Migration
         return date('Y-m-d H:i:s', $val);
     }
 
-    function loadAuthors(){
+    private function loadAuthors(){
         $authors = Author::find()->all();
         foreach ($authors as $author){
             $this->authors[$author->id] = $author->name;
         }
     }
 
-    function loadLanguages(){
+    private function loadLanguages(){
         $languages = Language::find()->all();
         foreach ($languages as $language){
             $this->languages[$language->id] = $language->name;
         }
     }
 
-    function generateRandomString($language_id, $words_source, $words_count){
+    private function generateRandomString($language_id, $words_source, $words_count){
         $string = '';
         $words = $words_source[$this->languages[$language_id]];
         for($i = 1; $i <= $words_count; $i++){
@@ -96,12 +96,12 @@ class m180203_184607_posts extends Migration
         return $string;
     }
 
-    function generateRandomTitle($language_id){
+    private function generateRandomTitle($language_id){
         $title = $this->generateRandomString($language_id, $this->title_words, rand(4,6));
         return $title;
     }
 
-    function generateRandomText($language_id){
+    private function generateRandomText($language_id){
         $text = '';
         $sentences_count = rand(3,4);
         for($i = 1; $i <= $sentences_count; $i++){
