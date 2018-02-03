@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `languages`.
+ * Handles the creation of table `language`.
  */
-class m180203_162817_create_languages_table extends Migration
+class m180203_162817_create_language_table extends Migration
 {
     /**
      * @inheritdoc
      */
     public function up()
     {
-        $this->createTable('languages', [
+        $this->createTable('language', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
         ]);
@@ -23,6 +23,6 @@ class m180203_162817_create_languages_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('languages');
+        $this->dropTable('language');
     }
 }

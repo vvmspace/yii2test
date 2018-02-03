@@ -5,14 +5,14 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `posts`.
  */
-class m180203_163534_create_posts_table extends Migration
+class m180203_163534_create_post_table extends Migration
 {
     /**
      * @inheritdoc
      */
     public function up()
     {
-        $this->createTable('posts', [
+        $this->createTable('post', [
             'id' => $this->primaryKey(),
             'author_id' => $this->integer()->notNull(),
             'language_id' => $this->integer()->notNull(),
@@ -23,31 +23,31 @@ class m180203_163534_create_posts_table extends Migration
         ]);
 
         $this->createIndex(
-            'idx-posts-author_id',
-            'posts',
+            'idx-post-author_id',
+            'post',
             'author_id'
         );
 
         $this->addForeignKey(
-            'fk-posts-author_id',
-            'posts',
+            'fk-post-author_id',
+            'post',
             'author_id',
-            'authors',
+            'author',
             'id',
             'CASCADE'
         );
 
         $this->createIndex(
-            'idx-posts-language_id',
-            'posts',
+            'idx-post-language_id',
+            'post',
             'language_id'
         );
 
         $this->addForeignKey(
-            'fk-posts-language_id',
-            'posts',
+            'fk-post-language_id',
+            'post',
             'language_id',
-            'languages',
+            'language',
             'id',
             'CASCADE'
         );
@@ -59,6 +59,6 @@ class m180203_163534_create_posts_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('posts');
+        $this->dropTable('post');
     }
 }

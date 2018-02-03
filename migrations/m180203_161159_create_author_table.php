@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `authors`.
+ * Handles the creation of table `author`.
  */
-class m180203_161159_create_authors_table extends Migration
+class m180203_161159_create_author_table extends Migration
 {
     /**
      * @inheritdoc
      */
     public function up()
     {
-        $this->createTable('authors', [
+        $this->createTable('author', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
         ]);
@@ -23,6 +23,6 @@ class m180203_161159_create_authors_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('authors');
+        $this->dropTable('author');
     }
 }
