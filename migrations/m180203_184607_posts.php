@@ -38,6 +38,7 @@ class m180203_184607_posts extends Migration
     {
         $this->loadAuthors();
         $this->loadLanguages();
+        $bulk = [];
         for($i = 1; $i <= 10000; $i++){
             $post = new Post();
             $post->author_id = array_rand($this->authors);
@@ -46,8 +47,9 @@ class m180203_184607_posts extends Migration
             $post->text = $this->generateRandomText($post->language_id);
             $post->created_at = $this->randomDate('2017-07-01 00:00:00', '2017-08-08 23:59:59');
             $post->likes = rand(1, rand(1,100));
-            $post->save();
+            $bulk[] = $post->attributes;
         }
+        Yii::$app->db->createCommand()->batchInsert(Post::tableName(), $post->attributes(), $bulk)->execute();
     }
 
     public function down()
